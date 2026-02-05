@@ -1,0 +1,38 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: oklch(0.145 0 0);
+    /* ... your other light mode variables */
+    --primary: #030213;
+    --primary-foreground: #ffffff; /* Explicitly set white here */
+    --border: rgba(0, 0, 0, 0.1);
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    /* ... your other dark mode variables */
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* THIS FIXES THE BLUE LINKS */
+  a {
+    @apply text-primary-foreground no-underline transition-opacity hover:opacity-80;
+    /* If your background is white, use text-primary instead */
+    color: var(--primary); 
+  }
+}

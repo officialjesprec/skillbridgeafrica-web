@@ -1,0 +1,18 @@
+@import "tailwindcss"; /* MUST BE FIRST */
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+}
+
+:root {
+  --primary: #030213;
+  --primary-foreground: #ffffff;
+  /* ... rest of variables */
+}
+
+@layer base {
+  a {
+    color: var(--primary); /* This should now point to #030213 */
+  }
+}
